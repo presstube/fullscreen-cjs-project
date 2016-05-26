@@ -1,20 +1,28 @@
 /*
   TODO:
   - should load cjs if not already loaded
-  - load specific xfl lib
+  - use async/await for async
 */
 
 
 import React from "react"
 
-export default class FSCJSUnit extends React.Component {
+export default class FullscreenCJSUnit extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {w: null, height: null}
+    this.loadLib(props.filename)
   }
 
-  componentDidMount() {
+  loadLib(filename) {
+    const libScript = document.createElement("script")
+    libScript.src = filename
+    libScript.addEventListener("load", this.onLibLoaded.bind(this))
+    document.body.appendChild(libScript)
+  }
+
+  onLibLoaded() {
     const exportRoot = new lib.aunit()
     this.main = exportRoot.main
     this.stage = new createjs.Stage(this.canvas)
@@ -24,7 +32,6 @@ export default class FSCJSUnit extends React.Component {
     createjs.Ticker.addEventListener("tick", this.stage)
     window.addEventListener("resize", this.onResize.bind(this))
     this.onResize()
-    console.log("stage: ", lib.properties)
   }
 
   onResize() {
