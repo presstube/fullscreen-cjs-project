@@ -1,8 +1,8 @@
 /*
   TODO:
-  - should load cjs if not already loaded
-  - use async/await for async
-  - validate props? (who cares?)
+  - should load cjs if not already loaded?
+  - use async/await for async?
+  - validate props?
 */
 
 
