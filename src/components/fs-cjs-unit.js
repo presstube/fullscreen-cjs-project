@@ -2,6 +2,7 @@
   TODO:
   - should load cjs if not already loaded
   - use async/await for async
+  - validate props? (who cares?)
 */
 
 
@@ -11,7 +12,7 @@ export default class FullscreenCJSUnit extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {sw: null, sh: null, dpr: null}
+    this.state = {sw: null, sh: null, dpr: null, shrinkScale: 1}
     this.loadLib(props.filename)
   }
 
@@ -36,15 +37,22 @@ export default class FullscreenCJSUnit extends React.Component {
 
   onResize() {
     const {stage, main} = this
+    const {w, h} = this.props
     const {
       innerWidth: sw,
       innerHeight: sh,
       devicePixelRatio: dpr
     } = window
-    this.setState({sw, sh, dpr}, () => {
-      stage.scaleX = stage.scaleY = dpr
-      main.x = sw / 2
-      main.y = sh / 2
+    let shrinkScale = 1
+    if (sw >= sh) {
+      shrinkScale = sh < h ? sh / h : 1
+    } else {
+      shrinkScale = sw < w ? sw / w : 1
+    }
+    this.setState({sw, sh, dpr, shrinkScale}, () => {
+      stage.scaleX = stage.scaleY = dpr * shrinkScale
+      main.x = (sw / shrinkScale) / 2
+      main.y = (sh / shrinkScale) / 2
       stage.update()
     })
   }
