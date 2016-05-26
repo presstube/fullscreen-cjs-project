@@ -24,7 +24,7 @@ export default class FullscreenCJSUnit extends React.Component {
   }
 
   onLibLoaded() {
-    const exportRoot = new lib.aunit()
+    const exportRoot = new lib[this.props.libname]()
     this.main = exportRoot.main
     this.stage = new createjs.Stage(this.canvas)
     this.stage.addChild(exportRoot)
