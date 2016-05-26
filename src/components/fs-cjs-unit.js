@@ -11,7 +11,7 @@ export default class FullscreenCJSUnit extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {w: null, height: null}
+    this.state = {sw: null, sh: null, dpr: null}
     this.loadLib(props.filename)
   }
 
@@ -35,26 +35,40 @@ export default class FullscreenCJSUnit extends React.Component {
   }
 
   onResize() {
-    const {innerWidth: w, innerHeight: h} = window
-    this.setState({w, h}, () => {
-      this.main.x = w/2
-      this.main.y = h/2
-      this.stage.update()
+    const {stage, main} = this
+    const {
+      innerWidth: sw,
+      innerHeight: sh,
+      devicePixelRatio: dpr
+    } = window
+    this.setState({sw, sh, dpr}, () => {
+      stage.scaleX = stage.scaleY = dpr
+      main.x = sw / 2
+      main.y = sh / 2
+      stage.update()
     })
   }
 
   render() {
+    const {sw, sh, dpr} = this.state
     return (
-      <div>
+      <div
+        style={{
+          position: "absolute",
+          overflow: "hidden",
+          top: 0,
+          left: 0,
+          width: sw,
+          height: sh
+        }}
+      >
         <canvas
-          ref={(el) => {
-            console.log("hello: ", el)
-            this.canvas = el
-          }}
-          width={this.state.w}
-          height={this.state.h}
+          ref={el => {this.canvas = el}}
+          width={sw * dpr}
+          height={sh * dpr}
           style={{
-            backgroundColor: ""
+            width: sw,
+            height: sh
           }}>
         </canvas>
       </div>
