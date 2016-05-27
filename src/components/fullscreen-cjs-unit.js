@@ -11,21 +11,21 @@ import React from "react"
 export default class FullscreenCJSUnit extends React.Component {
 
   static propTypes = {
-    filename: React.PropTypes.string.isRequired,
-    namespace: React.PropTypes.string.isRequired,
-    width: React.PropTypes.number.isRequired,
-    height: React.PropTypes.number.isRequired,
-    fps: React.PropTypes.number,
-  }
-
-  static defaultProps = {
-    fps: 30
+    name: React.PropTypes.string.isRequired
   }
 
   constructor(props) {
+    const {name} = props
     super(props)
-    this.state = {sw: null, sh: null, dpr: null, shrinkScale: 1}
-    this.loadLib(props.filename)
+    this.loadLib(`${name}.js`)
+  }
+
+  state = {
+    canvas: null,
+    sw: 0,
+    sh: 0,
+    dpr: 1,
+    shrinkScale: 1
   }
 
   loadLib(filename) {
@@ -36,26 +36,26 @@ export default class FullscreenCJSUnit extends React.Component {
   }
 
   onLibLoaded() {
-    const {namespace, fps} = this.props
-    const exportRoot = new window[namespace][namespace]
-    this.main = exportRoot.main
-    this.stage = new createjs.Stage(this.canvas)
-    this.stage.addChild(exportRoot)
-    this.stage.update()
+    const {name} = this.props
+    const lib = window[name]
+    const {properties: libProps} = lib
+    const {fps} = libProps
+    const root = new lib[name]
+    const {main} = root
+    const stage = new createjs.Stage(this.canvas)
+    stage.addChild(root)
+    stage.update()
     createjs.Ticker.setFPS(fps)
-    createjs.Ticker.addEventListener("tick", this.stage)
+    createjs.Ticker.addEventListener("tick", stage)
     window.addEventListener("resize", this.onResize.bind(this))
+    Object.assign(this, {stage, main, libProps})
     this.onResize()
   }
 
   onResize() {
     const {stage, main} = this
-    const {width: w, height: h} = this.props
-    const {
-      innerWidth: sw,
-      innerHeight: sh,
-      devicePixelRatio: dpr
-    } = window
+    const {width: w, height: h} = this.libProps
+    const {innerWidth: sw, innerHeight: sh, devicePixelRatio: dpr} = window
     let shrinkScale = 1
     if (sw >= sh) {
       shrinkScale = (sh < h) ? sh / h : 1
@@ -86,7 +86,7 @@ export default class FullscreenCJSUnit extends React.Component {
         }}
       >
         <canvas
-          ref={el => {this.canvas = el}}
+          ref={el => {this.canvas=el}}
           width={sw * dpr}
           height={sh * dpr}
           style={{

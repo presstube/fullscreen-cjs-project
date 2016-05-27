@@ -5,17 +5,7 @@ import FullscreenCJSUnit from "./fullscreen-cjs-unit"
 
 export default class App extends React.Component {
   render () {
-    return (
-
-      <FullscreenCJSUnit
-        filename="a-unit.js"
-        namespace="aunit"
-        width={800}
-        height={800}
-        fps={10}
-      />
-
-    )
+    return <FullscreenCJSUnit name="aunit" />
   }
 }
 
