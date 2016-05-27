@@ -1,16 +1,16 @@
 
 import React from "react"
 
-import FullscreenCJSUnit from "./fs-cjs-unit"
+import FullscreenCJSUnit from "./fullscreen-cjs-unit"
 
 export default class App extends React.Component {
   render () {
     return (
       <FullscreenCJSUnit
-        filename="b-unit.js"
-        libname="bunit"
-        w="800"
-        h="500"
+        filename="c-unit.js"
+        libname="cunit"
+        w="700"
+        h="900"
       />
     )
   }

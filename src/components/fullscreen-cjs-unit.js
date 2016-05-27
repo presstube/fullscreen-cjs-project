@@ -45,9 +45,11 @@ export default class FullscreenCJSUnit extends React.Component {
     } = window
     let shrinkScale = 1
     if (sw >= sh) {
-      shrinkScale = sh < h ? sh / h : 1
+      shrinkScale = (sh < h) ? sh / h : 1
+      shrinkScale = (w*shrinkScale >= sw) ? sw / w : shrinkScale
     } else {
       shrinkScale = sw < w ? sw / w : 1
+      shrinkScale = (h*shrinkScale >= sh) ? sh / h : shrinkScale
     }
     this.setState({sw, sh, dpr, shrinkScale}, () => {
       stage.scaleX = stage.scaleY = dpr * shrinkScale
