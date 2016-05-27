@@ -2,7 +2,7 @@
   TODO:
   - should load cjs if not already loaded?
   - use async/await for async?
-  - validate props?
+  - get width, height and fps from lib properties?
 */
 
 
@@ -13,8 +13,13 @@ export default class FullscreenCJSUnit extends React.Component {
   static propTypes = {
     filename: React.PropTypes.string.isRequired,
     namespace: React.PropTypes.string.isRequired,
-    width: React.PropTypes.string.isRequired,
-    height: React.PropTypes.string.isRequired,
+    width: React.PropTypes.number.isRequired,
+    height: React.PropTypes.number.isRequired,
+    fps: React.PropTypes.number,
+  }
+
+  static defaultProps = {
+    fps: 30
   }
 
   constructor(props) {
@@ -31,13 +36,13 @@ export default class FullscreenCJSUnit extends React.Component {
   }
 
   onLibLoaded() {
-    const {namespace} = this.props
+    const {namespace, fps} = this.props
     const exportRoot = new window[namespace][namespace]
     this.main = exportRoot.main
     this.stage = new createjs.Stage(this.canvas)
     this.stage.addChild(exportRoot)
     this.stage.update()
-    createjs.Ticker.setFPS(30)
+    createjs.Ticker.setFPS(fps)
     createjs.Ticker.addEventListener("tick", this.stage)
     window.addEventListener("resize", this.onResize.bind(this))
     this.onResize()
