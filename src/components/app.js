@@ -10,7 +10,7 @@ export default class App extends React.Component {
         filename="c-unit.js"
         namespace="cunit"
         width="700"
-        height="700"
+        height="900"
       />
     )
   }
