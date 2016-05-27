@@ -8,11 +8,11 @@ export default class App extends React.Component {
     return (
 
       <FullscreenCJSUnit
-        filename="c-unit.js"
-        namespace="cunit"
-        width={700}
-        height={900}
-        fps={30}
+        filename="a-unit.js"
+        namespace="aunit"
+        width={800}
+        height={800}
+        fps={10}
       />
 
     )
