@@ -19,7 +19,6 @@
   ],
   "globals": {
     "createjs": true,
-    "lib": true
   },
   "rules": {
     "react/display-name": [

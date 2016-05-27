@@ -10,6 +10,13 @@ import React from "react"
 
 export default class FullscreenCJSUnit extends React.Component {
 
+  static propTypes = {
+    filename: React.PropTypes.string.isRequired,
+    namespace: React.PropTypes.string.isRequired,
+    width: React.PropTypes.string.isRequired,
+    height: React.PropTypes.string.isRequired,
+  }
+
   constructor(props) {
     super(props)
     this.state = {sw: null, sh: null, dpr: null, shrinkScale: 1}
@@ -24,7 +31,8 @@ export default class FullscreenCJSUnit extends React.Component {
   }
 
   onLibLoaded() {
-    const exportRoot = new lib[this.props.libname]()
+    const {namespace} = this.props
+    const exportRoot = new window[namespace][namespace]
     this.main = exportRoot.main
     this.stage = new createjs.Stage(this.canvas)
     this.stage.addChild(exportRoot)
@@ -37,7 +45,7 @@ export default class FullscreenCJSUnit extends React.Component {
 
   onResize() {
     const {stage, main} = this
-    const {w, h} = this.props
+    const {width: w, height: h} = this.props
     const {
       innerWidth: sw,
       innerHeight: sh,

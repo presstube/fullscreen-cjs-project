@@ -44,7 +44,7 @@
     <Property name="createjsNS">createjs</Property>
     <Property name="default">false</Property>
     <Property name="exportAsSpritesheet">true</Property>
-    <Property name="exportHTML">false</Property>
+    <Property name="exportHTML">true</Property>
     <Property name="exportImages">true</Property>
     <Property name="exportLibs">true</Property>
     <Property name="exportSounds">true</Property>
@@ -58,7 +58,7 @@
     <Property name="jpegBackground">#FFFFFF</Property>
     <Property name="jpegMaxSheetHeight">8192</Property>
     <Property name="jpegMaxSheetWidth">8192</Property>
-    <Property name="libNS">lib</Property>
+    <Property name="libNS">aunit</Property>
     <Property name="libraryPath">libs/</Property>
     <Property name="loop">true</Property>
     <Property name="optimizeExport">true</Property>
