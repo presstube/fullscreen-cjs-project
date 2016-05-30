@@ -1,0 +1,35 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#999999" width="800" height="800" frameRate="30" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" guidesSnapTo="false" snapAlign="false" objectsSnapTo="false" viewAngle3D="74.2651684569298" previewMode="fast" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
+     <media>
+          <DOMBitmapItem name="IMG_1701.JPG" itemID="5738abbc-000001bc" sourceLastImported="1463330540" sourcePlatform="macintosh" allowSmoothing="true" quality="50" href="IMG_1701.JPG" bitmapDataHRef="M 1 1464393293.dat" frameRight="48960" frameBottom="48960" isJPEG="true"/>
+     </media>
+     <symbols>
+          <Include href="main.xml" loadImmediate="false" itemID="5748de09-0000002d" lastModified="1464394111"/>
+     </symbols>
+     <timelines>
+          <DOMTimeline name="Scene 1">
+               <layers>
+                    <DOMLayer name="Layer 1" color="#4F80FF" current="true" isSelected="true">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="main" name="main" selected="true">
+                                             <matrix>
+                                                  <Matrix tx="400" ty="400"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <persistentData>
+          <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
+     </persistentData>
+     <PrinterSettings platform="macintosh"/>
+     <publishHistory/>
+</DOMDocument>
