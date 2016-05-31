@@ -65,14 +65,15 @@ export default class Nav extends React.Component {
     const {stage, libProps} = this.state
     const {width: w, height: h} = libProps
     const {innerWidth: sw, innerHeight: sh, devicePixelRatio: dpr} = window
-    let shrinkScale = 1
-    if (sw >= sh) {
-      shrinkScale = (sh < h) ? sh / h : 1
-      shrinkScale = (w*shrinkScale >= sw) ? sw / w : shrinkScale
-    } else {
-      shrinkScale = sw < w ? sw / w : 1
-      shrinkScale = (h*shrinkScale >= sh) ? sh / h : shrinkScale
-    }
+    const shrinkScale = sw / w
+    // let shrinkScale = 1
+    // if (sw >= sh) {
+    //   shrinkScale = (sh < h) ? sh / h : 1
+    //   shrinkScale = (w*shrinkScale >= sw) ? sw / w : shrinkScale
+    // } else {
+    //   shrinkScale = sw < w ? sw / w : 1
+    //   shrinkScale = (h*shrinkScale >= sh) ? sh / h : shrinkScale
+    // }
     this.setState({sw, sh, dpr, shrinkScale}, () => {
       stage.scaleX = stage.scaleY = dpr * shrinkScale
       // main.x = (sw / shrinkScale) / 2
@@ -82,9 +83,10 @@ export default class Nav extends React.Component {
   }
 
   render() {
-    const {sw, sh, dpr} = this.state
+    const {sw, sh, dpr, shrinkScale} = this.state
     // console.log("libProps ", this.libProps)
     const {width, height} = this.state.libProps
+    const scaledHeight = height * shrinkScale
     return (
       <div
         style={{
@@ -93,17 +95,16 @@ export default class Nav extends React.Component {
           top: 0,
           left: 0,
           width: sw,
-          // height: height,
+          height: scaledHeight,
         }}
       >
         <canvas
           ref={el => {this.canvas=el}}
-          width={width * dpr}
-          height={height * dpr}
+          width={sw * dpr}
+          height={scaledHeight * dpr}
           style={{
-            width,
-            height,
-            // backgroundColor: "white"
+            width: sw,
+            height: scaledHeight,
           }}>
         </canvas>
       </div>
