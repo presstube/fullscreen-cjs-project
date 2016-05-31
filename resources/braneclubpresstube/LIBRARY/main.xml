@@ -1,29 +1,14 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="main" itemID="574c99b6-00000163" lastModified="1464705293">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="main" itemID="574c99b6-00000163" lastModified="1464708674">
   <persistentData>
     <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
   </persistentData>
   <timeline>
     <DOMTimeline name="main">
       <layers>
-        <DOMLayer name="bounds" color="#4F80FF" autoNamed="false">
+        <DOMLayer name="bounds" color="#4F80FF" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" duration="172" keyMode="9728">
-              <elements>
-                <DOMShape>
-                  <strokes>
-                    <StrokeStyle index="1">
-                      <SolidStroke scaleMode="normal">
-                        <fill>
-                          <SolidColor color="#CCCCCC"/>
-                        </fill>
-                      </SolidStroke>
-                    </StrokeStyle>
-                  </strokes>
-                  <edges>
-                    <Edge strokeStyle="1" edges="!0 0|10800 0!10800 0|10800 2000!10800 2000|0 2000!0 2000|0 0"/>
-                  </edges>
-                </DOMShape>
-              </elements>
+              <elements/>
             </DOMFrame>
           </frames>
         </DOMLayer>
@@ -133,7 +118,7 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="bg" color="#9933CC" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="bg" color="#9933CC" autoNamed="false" visible="false">
           <frames>
             <DOMFrame index="0" duration="172" keyMode="9728">
               <elements>
