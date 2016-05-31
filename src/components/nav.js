@@ -88,11 +88,7 @@ export default class Nav extends React.Component {
     return (
       <div
         style={{
-          // position: "absolute",
-          // overflow: "hidden",
           textAlign: "center",
-          // top: 0,
-          // left: 0,
           width: sw,
           height: scaledHeight,
         }}
