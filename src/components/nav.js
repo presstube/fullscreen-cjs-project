@@ -82,25 +82,27 @@ export default class Nav extends React.Component {
 
   render() {
     const {sw, dpr, shrinkScale} = this.state
-    const {height} = this.state.libProps
+    const {width, height} = this.state.libProps
     const scaledHeight = height * shrinkScale
+    const scaledWidth = width * shrinkScale
     return (
       <div
         style={{
-          position: "absolute",
-          overflow: "hidden",
-          top: 0,
-          left: 0,
+          // position: "absolute",
+          // overflow: "hidden",
+          textAlign: "center",
+          // top: 0,
+          // left: 0,
           width: sw,
           height: scaledHeight,
         }}
       >
         <canvas
           ref={el => {this.canvas=el}}
-          width={sw * dpr}
+          width={scaledWidth * dpr}
           height={scaledHeight * dpr}
           style={{
-            width: sw,
+            width: scaledWidth,
             height: scaledHeight,
           }}>
         </canvas>
