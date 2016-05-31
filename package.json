@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src/main.js",
     "postversion": "git push && git push --tags",
-    "build-production": "npm run beforebuild && webpack -p --devtool sourcemap"
+    "build-production": "npm run beforebuild && webpack -p --devtool sourcemap",
+    "deploy": "npm run build-production && surge --domain brane.surge.sh --project ./build"
   },
   "repository": {
     "type": "git",
