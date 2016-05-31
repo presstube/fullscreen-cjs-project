@@ -7,7 +7,12 @@ import React from "react"
 export default class Nav extends React.Component {
 
   static propTypes = {
-    name: React.PropTypes.string.isRequired
+    name: React.PropTypes.string.isRequired,
+    maxWidth: React.PropTypes.number
+  }
+
+  static defaultProps = {
+    maxWidth: null
   }
 
   constructor(props) {
@@ -63,29 +68,21 @@ export default class Nav extends React.Component {
 
   onResize() {
     const {stage, libProps} = this.state
-    const {width: w, height: h} = libProps
+    const {width} = libProps
+    const {maxWidth} = this.props
     const {innerWidth: sw, innerHeight: sh, devicePixelRatio: dpr} = window
-    const shrinkScale = sw / w
-    // let shrinkScale = 1
-    // if (sw >= sh) {
-    //   shrinkScale = (sh < h) ? sh / h : 1
-    //   shrinkScale = (w*shrinkScale >= sw) ? sw / w : shrinkScale
-    // } else {
-    //   shrinkScale = sw < w ? sw / w : 1
-    //   shrinkScale = (h*shrinkScale >= sh) ? sh / h : shrinkScale
-    // }
+    const shrinkScale = (maxWidth && sw > maxWidth)
+      ? maxWidth / width
+      : sw / width
     this.setState({sw, sh, dpr, shrinkScale}, () => {
       stage.scaleX = stage.scaleY = dpr * shrinkScale
-      // main.x = (sw / shrinkScale) / 2
-      // main.y = (sh / shrinkScale) / 2
       stage.update()
     })
   }
 
   render() {
-    const {sw, sh, dpr, shrinkScale} = this.state
-    // console.log("libProps ", this.libProps)
-    const {width, height} = this.state.libProps
+    const {sw, dpr, shrinkScale} = this.state
+    const {height} = this.state.libProps
     const scaledHeight = height * shrinkScale
     return (
       <div

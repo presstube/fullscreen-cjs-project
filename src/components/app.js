@@ -8,7 +8,7 @@ export default class App extends React.Component {
   render () {
     return (
       <div>
-        <Nav name="braneclubpresstube" />
+        <Nav name="braneclubpresstube" maxWidth={800}/>
       </div>
     )
 
