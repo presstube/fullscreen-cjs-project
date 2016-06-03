@@ -69,7 +69,7 @@ export default class Nav extends React.Component {
   onResize() {
     const {stage, libProps} = this.state
     const {width} = libProps
-    const {maxWidth} = this.props
+    const maxWidth = this.props.maxWidth ? this.props.maxWidth : width
     const {innerWidth: sw, innerHeight: sh, devicePixelRatio: dpr} = window
     const shrinkScale = (maxWidth && sw > maxWidth)
       ? maxWidth / width
@@ -88,9 +88,10 @@ export default class Nav extends React.Component {
     return (
       <div
         style={{
-          textAlign: "center",
+          position: "absolute",
+          textAlign: "left",
           width: sw,
-          height: scaledHeight,
+          height: scaledHeight
         }}
       >
         <canvas

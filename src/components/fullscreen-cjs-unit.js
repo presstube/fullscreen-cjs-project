@@ -82,7 +82,8 @@ export default class FullscreenCJSUnit extends React.Component {
           top: 0,
           left: 0,
           width: sw,
-          height: sh
+          height: sh,
+          // zIndex: 1
         }}
       >
         <canvas
