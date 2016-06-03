@@ -1,0 +1,37 @@
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" width="100" height="100" frameRate="60" currentTimeline="1" xflVersion="2.7" creatorInfo="Adobe Animate CC" platform="Macintosh" versionInfo="Saved by Animate Macintosh 15.1 build 13" majorVersion="15" minorVersion="1" buildNumber="13" guidesSnapTo="false" snapAlign="false" viewAngle3D="10.8137112665991" previewMode="full" nextSceneIdentifier="2" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" filetypeGUID="3CE50BB6-55CF-47A6-B591-01286DDDC64C">
+     <symbols>
+          <Include href="dot.xml" loadImmediate="false" itemID="57450826-0000008a" lastModified="1464634427"/>
+          <Include href="main.xml" loadImmediate="false" itemID="5751cf38-00000018" lastModified="1464982752"/>
+          <Include href="p1.xml" loadImmediate="false" itemID="5744fe14-00000007" lastModified="1464613004"/>
+          <Include href="p2.xml" loadImmediate="false" itemID="5744ff44-00000021" lastModified="1464612996"/>
+          <Include href="p3.xml" loadImmediate="false" itemID="574500d3-00000053" lastModified="1464612991"/>
+          <Include href="pt-logo-unfolding.xml" loadImmediate="false" itemID="574c3721-0000004a" lastModified="1464982335"/>
+     </symbols>
+     <timelines>
+          <DOMTimeline name="Scene 1">
+               <layers>
+                    <DOMLayer name="Layer 3" color="#FF800A" current="true" isSelected="true">
+                         <frames>
+                              <DOMFrame index="0" keyMode="9728">
+                                   <elements>
+                                        <DOMSymbolInstance libraryItemName="main" name="main">
+                                             <matrix>
+                                                  <Matrix tx="50" ty="50"/>
+                                             </matrix>
+                                             <transformationPoint>
+                                                  <Point/>
+                                             </transformationPoint>
+                                        </DOMSymbolInstance>
+                                   </elements>
+                              </DOMFrame>
+                         </frames>
+                    </DOMLayer>
+               </layers>
+          </DOMTimeline>
+     </timelines>
+     <persistentData>
+          <PD n="CreateJSToolkit_timelinedata" v="version&#xA;0.1&#xA;loop&#xA;true"/>
+     </persistentData>
+     <PrinterSettings platform="macintosh"/>
+     <publishHistory/>
+</DOMDocument>
